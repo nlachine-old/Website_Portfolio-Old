@@ -1,9 +1,18 @@
-//const navLinks = document.querySelectorAll("a");
+const navLinks = document.querySelectorAll(".nav__link > a");
 const navContainer = document.querySelector("nav");
-console.log(navContainer);
-// for (let link of navLinks) {
-//   link.addEventListener("click", function () {
-//     //navContainer.style.opacity = 0;
-//     console.log("clicked");
-//   });
-// }
+const navToggle = document.querySelector("#nav-toggle");
+const mainContainer = document.querySelector("main");
+
+//  Close Mobile Nav Bar
+// On click out
+mainContainer.addEventListener("click", () => {
+  navToggle.checked = false;
+});
+
+// On link click
+for (let link of navLinks) {
+  link.addEventListener("click", () => {
+    navToggle.checked = false;
+    console.log("clicked");
+  });
+}
