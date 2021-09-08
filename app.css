@@ -1,0 +1,569 @@
+:root {
+  --col-beige: #efdccc;
+  --col-black: #111111;
+  --col-grey: #1a1a1a;
+  --col-navy: #00072d;
+  --col-red-reg: #b80c09;
+  --col-red-light: #f53633;
+  --col-red-dark: #580604;
+  --col-blue-reg: #1e96fc;
+  --col-blue-light: #81c4fd;
+  --col-blue-dark: #0260b0;
+  --font-inter: "Inter", sans-serif;
+  --font-roboto: "Roboto Mono", monospace;
+  --header-height: 4rem;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--font-inter);
+  color: var(--col-black);
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1.32;
+  color: inherit;
+  vertical-align: baseline;
+  scroll-behavior: smooth;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Nav Bar */
+main {
+  margin-bottom: var(--header-height);
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+header {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 999;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--col-grey);
+  box-shadow: 0px 0px 10px 0px #000;
+}
+
+.nav__logo {
+  color: var(--col-beige);
+  height: var(--header-height);
+  width: var(--header-height);
+  max-height: 100%;
+  max-width: 100%;
+  padding: 1rem 1rem 1rem 0rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav__logo a {
+  width: 100%;
+  height: 100%;
+}
+
+.nav__logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  filter: invert(42%) sepia(66%) saturate(5099%) hue-rotate(340deg)
+    brightness(93%) contrast(105%);
+}
+
+.nav__toggle {
+  display: none;
+}
+
+.nav__toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__toggle-label span::before,
+.nav__toggle-label span::after {
+  content: "";
+  position: absolute;
+}
+
+.nav__toggle-label span::after {
+  top: 6px;
+}
+.nav__toggle-label span::before {
+  bottom: 8px;
+}
+
+.nav__toggle-label span,
+.nav__toggle-label span::before,
+.nav__toggle-label span::after {
+  display: block;
+  background: var(--col-beige);
+  width: 2rem;
+  height: 2px;
+  border-radius: 1rem;
+  position: relative;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--col-grey);
+  transform: scale(1, 0);
+  transform-origin: bottom;
+  transition: transform 400ms ease-in-out;
+}
+nav ul {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+nav ul li {
+  margin-bottom: 1rem;
+}
+nav a {
+  color: var(--col-beige);
+  text-decoration: none;
+  font-size: 1rem;
+  text-transform: capitalize;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+nav a:hover {
+  color: var(--col-red-light);
+}
+
+.nav__toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav__toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* Font Settings */
+.text-large {
+  font-size: 4.209rem;
+}
+h1,
+.h1 {
+  font-size: 3.157rem;
+}
+h2,
+.h2 {
+  font-size: 2.369rem;
+}
+h3,
+.h3 {
+  font-size: 1.777rem;
+}
+h4,
+.h4 {
+  font-size: 1.333rem;
+}
+h5,
+.h5,
+h6,
+.h6,
+p,
+.p {
+  font-size: 1rem;
+}
+.text-small {
+  font-size: 0.75rem;
+}
+
+.mono {
+  font-family: var(--font-roboto);
+  font-weight: normal;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.text-beige {
+  color: var(--col-beige);
+}
+.text-black {
+  color: var(--col-black);
+}
+.text-navy {
+  color: var(--col-black);
+}
+.text-blue-0 {
+  color: var(--col-blue-light);
+}
+.text-blue-1 {
+  color: var(--col-blue-reg);
+}
+.text-blue-2 {
+  color: var(--col-blue-dark);
+}
+.text-red-0 {
+  color: var(--col-red-light);
+}
+.text-red-1 {
+  color: var(--col-red-reg);
+}
+.text-red-2 {
+  color: var(--col-red-dark);
+}
+
+/* Helper Classes */
+.bg-red-0 {
+  background: var(--col-red-light);
+}
+.bg-red-1 {
+  background: var(--col-red-reg);
+}
+.bg-red-2 {
+  background: var(--col-red-dark);
+}
+.bg-blue-0 {
+  background: var(--col-blue-light);
+}
+.bg-blue-1 {
+  background: var(--col-blue-reg);
+}
+.bg-blue-2 {
+  background: var(--col-blue-dark);
+}
+.bg-black {
+  background: var(--col-black);
+}
+
+/* buttons */
+button {
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 3rem;
+  width: max-content;
+}
+
+.btn-beige {
+  background-color: var(--col-beige);
+  color: var(--col-black);
+}
+
+/* Page */
+section {
+  padding: 64px 0;
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  align-items: center;
+}
+section:nth-child(odd) {
+  background-color: var(--col-black);
+}
+section:nth-child(even) {
+  background-color: var(--col-beige);
+}
+
+.container {
+  grid-column: 2 / span 1;
+}
+
+/* Asthetic Lines */
+.line {
+  position: absolute;
+  right: 0;
+  height: 1.5rem;
+  z-index: 10;
+  border-radius: 10rem 0 0 10rem;
+}
+.line-long {
+  min-width: 270px;
+  width: 24%;
+  top: 2rem;
+}
+.line-short {
+  min-width: 180px;
+  width: 16%;
+  top: 4rem;
+}
+
+/* Jumbotron */
+.jumbo_text-content {
+  margin-bottom: 4rem;
+}
+
+.btn__jumbotron {
+  grid-column: 2/3;
+}
+
+@media screen and (min-width: 768px) {
+  /* Font Settings */
+  .text-large {
+    font-size: 7.478rem;
+  }
+  h1,
+  .h1 {
+    font-size: 5.61rem;
+  }
+  h2,
+  .h2 {
+    font-size: 4.209rem;
+  }
+  h3,
+  .h3 {
+    font-size: 3.157rem;
+  }
+  h4,
+  .h4 {
+    font-size: 2.369rem;
+  }
+  h5,
+  .h5 {
+    font-size: 1.777rem;
+  }
+  h6,
+  .h6 {
+    font-size: 1.333rem;
+  }
+  p,
+  .p {
+    font-size: 1rem;
+  }
+  .text-small {
+    font-size: 0.75rem;
+  }
+
+  /* Buttons */
+  button {
+    font-weight: bold;
+    font-size: 1.333rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 3rem;
+  }
+
+  /* Nav Bar */
+  .nav__toggle-label {
+    display: none;
+  }
+  header {
+    box-shadow: none;
+    background-color: var(--col-black);
+    display: grid;
+    grid-template-columns: 10% auto minmax(400px, 1fr) 10%;
+    top: 0;
+  }
+  .nav__logo {
+    margin: 0;
+    text-decoration: none;
+    grid-column: 2 / 3;
+  }
+
+  nav {
+    all: unset;
+    grid-column: 3 / 4;
+  }
+
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  nav a::before {
+    content: "";
+    display: block;
+    height: 2px;
+    border-radius: 1rem;
+    background: var(--col-red-light);
+    position: absolute;
+    bottom: -0.75rem;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+
+  nav ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  nav ul li {
+    padding: 0 1rem;
+    margin: 0;
+  }
+
+  /* main */
+  main {
+    margin-bottom: 0;
+  }
+
+  section {
+    min-height: 100vh;
+    scroll-padding-bottom: 1000px;
+  }
+
+  /* Asthetic lines */
+  .line-long {
+    top: 6rem;
+  }
+  .line-short {
+    top: 8rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1516px) {
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noah Lachine</title>
+
+    <!-- Google Fonts Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Roboto+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="app.css" />
+
+    <!-- JavaScript Files -->
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="nav__logo">
+        <a href="#home"><img src="NL_Logo.svg" alt="Noah Lachine" /></a>
+      </div>
+      <input type="checkbox" id="nav-toggle" class="nav__toggle" />
+      <nav>
+        <ul>
+          <li class="nav__link"><a href="index.html#home">Home</a></li>
+          <li class="nav__link"><a href="#about">About</a></li>
+          <li class="nav__link"><a href="#projects">Projects</a></li>
+          <li class="nav__link"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <label for="nav-toggle" class="nav__toggle-label"><span></span></label>
+    </header>
+    <main>
+      <!-- Page 1 -->
+      <section id="home">
+        <div class="container">
+          <div class="line line-long bg-red-0"></div>
+          <div class="line line-short bg-red-0"></div>
+          <div class="jumbo_text-content">
+            <div class="h5 text-beige jumbo__intro">Hello, my name is</div>
+            <h1 class="mono text-large text-blue-1 jumbo__title">
+              Noah Lachine
+            </h1>
+            <div class="h4 text-blue-0 jumbo__job-title">
+              Multi-Media Developer
+            </div>
+          </div>
+          <button class="btn-beige btn__jumbotron" type="button">
+            Contact Me
+          </button>
+        </div>
+      </section>
+
+      <!-- Page 2 -->
+      <section id="about">
+        <div class="container"></div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
