@@ -12,6 +12,13 @@
   --font-inter: "Inter", sans-serif;
   --font-roboto: "Roboto Mono", monospace;
   --header-height: 4rem;
+
+  /* Typewriter Effect */
+  --typewriter-speed: 3s; /* 3s */
+  --typewriter-delay: 2s; /* 2s */
+  --typewriter-char: 12;
+  --typewriter-blink: 700ms;
+  --typewriter-width: 0.125em;
 }
 /* Box sizing rules */
 *,
@@ -117,6 +124,7 @@ video {
   color: inherit;
   vertical-align: baseline;
   scroll-behavior: smooth;
+  text-decoration: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -169,6 +177,7 @@ header {
   bottom: 0;
   z-index: 999;
   width: 100%;
+  max-width: 100vw;
   height: var(--header-height);
   background: var(--col-grey);
   box-shadow: 0px 0px 10px 0px #000;
@@ -389,6 +398,15 @@ button {
   width: max-content;
 }
 
+.btn-small {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3rem;
+  width: max-content;
+}
+
 .btn-beige {
   background-color: var(--col-beige);
   color: var(--col-black);
@@ -413,6 +431,7 @@ section:nth-child(even) {
 
 .container {
   grid-column: 2 / span 1;
+  max-width: 100%;
 }
 
 /* Asthetic Lines */
@@ -422,6 +441,10 @@ section:nth-child(even) {
   height: 1.5rem;
   z-index: 10;
   border-radius: 10rem 0 0 10rem;
+  transform: scale(0, 1);
+  opacity: 0;
+  transform-origin: right;
+  animation: scaleLines 1s ease-out forwards;
 }
 .line-long {
   min-width: 270px;
@@ -439,8 +462,39 @@ section:nth-child(even) {
   margin-bottom: 4rem;
 }
 
-.btn__jumbotron {
-  grid-column: 2/3;
+.jumbo__name {
+  opacity: 0;
+  transform: translateY(-3rem);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.direct-about {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  width: max-content;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0, 0);
+  animation: scaleUp 500ms ease-out forwards;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main FadeIn */
+.jumbo__intro {
+  opacity: 0;
+  transform: translateY(-3rem);
+  animation: fadeIn 1s ease-out forwards;
+}
+/* Main FadeIn */
+.jumbo__job-title {
+  opacity: 0;
+  transform: translateY(-3rem);
+  animation: fadeIn 1s ease-out forwards;
 }
 
 @media screen and (min-width: 768px) {
@@ -537,6 +591,11 @@ section:nth-child(even) {
     display: flex;
     align-items: center;
     height: 100%;
+    position: relative;
+  }
+  nav ul li:last-child {
+    position: absolute;
+    right: 0;
   }
   nav ul li {
     padding: 0 1rem;
@@ -565,5 +624,83 @@ section:nth-child(even) {
 @media screen and (min-width: 1024px) {
 }
 
+@media screen and (min-width: 1200px) {
+  .direct-about {
+    animation: scaleUp 500ms ease-out
+      calc(var(--typewriter-delay) + var(--typewriter-speed) + 2s) forwards;
+  }
+
+  /* Main FadeIn */
+  .jumbo__intro {
+    animation: fadeIn var(--typewriter-delay) ease-out forwards;
+  }
+  /* Main FadeIn */
+  .jumbo__job-title {
+    transform: translate(0, 0);
+    animation: scaleUp 1s ease-out
+      calc(var(--typewriter-delay) + var(--typewriter-speed) + 1s) forwards;
+  }
+
+  /* Typewriter Effect */
+  .jumbo__name {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+    position: relative;
+    width: max-content;
+  }
+  .jumbo__name::before,
+  .jumbo__name::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .jumbo__name::before {
+    background: var(--col-black);
+    animation: typewriter var(--typewriter-speed) steps(var(--typewriter-char))
+      var(--typewriter-delay) forwards;
+  }
+
+  .jumbo__name::after {
+    width: var(--typewriter-width);
+    background: black;
+    animation: typewriter var(--typewriter-speed) steps(var(--typewriter-char))
+        calc(var(--typewriter-delay)) forwards,
+      blink var(--typewriter-blink) steps(var(--typewriter-char)) infinite;
+  }
+}
 @media screen and (min-width: 1516px) {
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@keyframes scaleUp {
+  to {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+@keyframes scaleLines {
+  to {
+    opacity: 0.5;
+    transform: scale(1, 1);
+  }
 }

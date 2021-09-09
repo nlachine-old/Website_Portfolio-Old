@@ -13,6 +13,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Roboto+Mono:ital@0;1&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="app.css" />
@@ -28,7 +32,9 @@
           <li class="nav__link"><a href="#home">Home</a></li>
           <li class="nav__link"><a href="#about">About</a></li>
           <li class="nav__link"><a href="#projects">Projects</a></li>
-          <li class="nav__link"><a href="#">Contact</a></li>
+          <li class="nav__link">
+            <button class="btn-small btn-beige">Contact Me</button>
+          </li>
         </ul>
       </nav>
       <label for="nav-toggle" class="nav__toggle-label"><span></span></label>
@@ -41,21 +47,29 @@
           <div class="line line-short bg-red-0"></div>
           <div class="jumbo_text-content">
             <div class="h5 text-beige jumbo__intro">Hello, my name is</div>
-            <h1 class="mono text-large text-blue-1 jumbo__title">
+            <h1 class="mono text-large text-blue-1 jumbo__name">
               Noah Lachine
             </h1>
             <div class="h4 text-blue-0 jumbo__job-title">
               Multi-Media Developer
             </div>
           </div>
-          <button class="btn-beige btn__jumbotron" type="button">
-            Contact Me
-          </button>
+          <a href="#about" class="direct-about text-red-0">
+            <span>About</span><span class="material-icons">expand_more</span>
+          </a>
         </div>
       </section>
 
       <!-- Page 2 -->
       <section id="about">
+        <div class="container"></div>
+      </section>
+      <!-- Page 2 -->
+      <section id="projects">
+        <div class="container"></div>
+      </section>
+      <!-- Page 2 -->
+      <section id="contact">
         <div class="container"></div>
       </section>
     </main>
